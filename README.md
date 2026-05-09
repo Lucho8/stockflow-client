@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StockFlow Client
 
-## Getting Started
+Frontend del sistema de gestión de inventario StockFlow, desarrollado con Next.js y TypeScript.
 
-First, run the development server:
+## Tecnologías
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- Axios
+- JWT Decode
+
+## Requisitos
+
+- Node.js 18+
+- pnpm
+
+## Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tu-usuario/stockflow-client
+cd stockflow-client
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Creá el archivo `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5050/api
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Corré el proyecto:
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+La app estará disponible en `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Variables de entorno
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Descripción |
+|----------|-------------|
+| NEXT_PUBLIC_API_URL | URL base de la API |
 
-## Deploy on Vercel
+## Páginas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Ruta | Descripción |
+|------|-------------|
+| /login | Inicio de sesión |
+| /dashboard | Métricas generales |
+| /dashboard/products | Gestión de productos |
+| /dashboard/categories | Gestión de categorías |
+| /dashboard/suppliers | Gestión de proveedores |
+| /dashboard/movements | Historial de movimientos de stock |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Funcionalidades
+
+- Autenticación con JWT
+- Rutas protegidas por rol (Admin / Employee)
+- Dashboard con métricas en tiempo real
+- CRUD completo de productos, categorías y proveedores
+- Registro de movimientos de stock (entrada/salida)
+- Alerta visual de productos con stock bajo
+- Diseño dark mode
+
+## Estructura del proyecto
+
+```
+stockflow-client/
+├── app/
+│   ├── dashboard/
+│   │   ├── categories/
+│   │   ├── movements/
+│   │   ├── products/
+│   │   ├── suppliers/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── login/
+│   └── page.tsx
+├── components/
+│   └── Sidebar.tsx
+└── lib/
+    ├── api.ts
+    ├── auth.ts
+    └── types.ts
+```
